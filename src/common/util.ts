@@ -159,14 +159,14 @@ const buildUrl = (url, params) => {
 }
 
 /**跳转到下一页*/
-const openPage = function(url, params) {
+const openPage = function(url, params?) {
   Taro.navigateTo({
     url: buildUrl(url, params),
   })
 }
 
 /**跳转到下一页，不需要返回*/
-const openPageWithoutBack = function(url, params) {
+const openPageWithoutBack = function(url, params?) {
   Taro.redirectTo({
     url: buildUrl(url, params),
   })

@@ -23,8 +23,10 @@ export default class Constant {
 
 
   /************************************************ 页面URL ************************************************/
-  static PAGE_HOME = "/pages/HomePage"
-  static PAGE_ABOUT = "/pages/AboutPage"
+  static PAGE_HOME = "/pages/index/index"
+  static PAGE_LOGIN = "/pages/login/index"
+  static PAGE_ABOUT = "/pages/about/index"
+
 
   /************************************************ 常用文案 ************************************************/
   static MSG_SUCCESS = "请求成功"

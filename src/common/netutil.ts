@@ -25,20 +25,23 @@ export interface HttpCallback {
 }
 
 const get = (url: string, params?: any, callback?: HttpCallback) => {
-  showLoading();
-  if (checkEnv()) {
-    Taro.request({
-      url: url,
-      method: HTTP_GET,
-      data: params,
-      header: HTTP_HEADER,
-      timeout: HTTP_TIMEOUT,
-      success: (res) => {},
-    });
-  } else {
-    callback && callback.fail(Constant.MSG_NET_ERROR);
-  }
-  hideLoading();
+  return new Promise((resolve, reject) => {
+    showLoading();
+    if (checkEnv()) {
+      Taro.request({
+        url: url,
+        method: HTTP_GET,
+        data: params,
+        header: HTTP_HEADER,
+        timeout: HTTP_TIMEOUT,
+        success: (res) => {
+          hideLoading();
+        },
+      });
+    } else {
+      callback && callback.fail(Constant.MSG_NET_ERROR);
+    }
+  })
 };
 
 const post = (url: string, params?: any, callback?: HttpCallback) => {

@@ -1,43 +1,39 @@
-import { Component } from 'react'
-import { View, Text } from '@tarojs/components'
-import './index.scss'
-import {get, post} from '../../common/netutil'
-import Constant from '../../common/constant'
-import { byLog } from '../../common/util'
-import ByButton from '../../component/by_btn/index'
-import { registerEvent } from '../../common/event'
+import { Component } from "react";
+import { Text } from "@tarojs/components";
+import "./index.scss";
+import { registerEvent } from "../../common/event";
+import Api from "../../common/api";
+import { openPage } from "../../common/util";
+import Constant from "../../common/constant";
+import ByButton from "../../component/by_btn";
+import Screen from ".";
 
-export default class Index extends Component {  
-  componentWillMount () { 
-    registerEvent('by666', {
+export default class Index extends Component {
+  componentWillMount() {
+    registerEvent("by666", {
       onEvent: (value) => {
-        console.log(value)
-      }
-    })
-    get(Constant.URL_LOGIN_WECHAT,{
-      success: ()=> {
-        byLog('成功')
+        console.log(value);
       },
-      fail: ()=> {
-        byLog('失败')
-      }
-    })
+    });
+    const params = {};
+    Api.wxLogin(params);
   }
 
-  componentDidMount () { }
+  openLoginPage() {
+    openPage(Constant.PAGE_LOGIN);
+  }
 
-  componentWillUnmount () { }
+  openAboutPage() {
+    openPage(Constant.PAGE_ABOUT);
+  }
 
-  componentDidShow () { }
-
-  componentDidHide () { }
-
-  render () {
+  render() {
     return (
-      <View className='index'>
-        <Text>Hello world!</Text>
-        <ByButton user='by'></ByButton>
-      </View>
-    )
+      <Screen>
+        <Text>1111</Text>
+        <ByButton title='登录' onClick={this.openLoginPage} />
+        <ByButton title='关于' onClick={this.openAboutPage} />
+      </Screen>
+    );
   }
 }

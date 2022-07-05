@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import './app.scss'
-import { getNetworkType, getSystemInfo, byLog } from './common/util'
+import { getNetworkType, getSystemInfo } from './common/util'
 
 class App extends Component {
 

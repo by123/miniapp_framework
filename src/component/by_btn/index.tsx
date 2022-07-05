@@ -1,24 +1,24 @@
-import { Button, Text, View } from "@tarojs/components";
-import { useContext } from "react";
-import {
-  networkTypeContext,
-  useNetworkTypeController,
-} from "../../hooks/useNetworkType";
-import { showToast } from "../../common/util";
+import { Button, View } from "@tarojs/components";
+import "./index.scss";
 
-const ByButton = (props) => {
-  const { networkType, setNetworkType } = useContext(networkTypeContext);
-  const showMessage = () => {
-    showToast("用户是" + props.user);
-    setNetworkType(props.user);
+interface ByButtonProps {
+  title?: string;
+  titleColor?: string;
+  bgColor?: string;
+  corner?: number;
+  isBottom?: boolean;
+  onClick?: () => void;
+}
+const ByButton = (props: ByButtonProps) => {
+  const onButtonClick = () => {
+    props.onClick && props.onClick();
   };
   return (
-    <networkTypeContext.Provider value={useNetworkTypeController()}>
-      <View>
-        <Text style={{ color: "#333333" }}>{networkType}</Text>
-        <Button onClick={showMessage}>登录</Button>
-      </View>
-    </networkTypeContext.Provider>
+    <View className='btn_layout'>
+      <Button className='btn' onClick={onButtonClick}>
+        {props.title}
+      </Button>
+    </View>
   );
 };
 
