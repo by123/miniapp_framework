@@ -1,16 +1,33 @@
 @import "../../style.scss";
 
-.btn_layout{
-}
-
 .btn_light{
-    @include btn_light();
+    @include btn_light;
     width: 100%;
     height: 100rpx;
 }
 
 .btn_dark{
-    @include btn_dark();
+    @include btn_dark;
     width: 100%;
     height: 100rpx;
+}
+
+.btn_disable{
+    @include btn_disable;
+    width: 100%;
+    height: 100rpx;
+}
+
+.btn_nobg{
+    @include btn_nobg;
+    width: 100%;
+    height: 100rpx;
+}
+
+.btn_hover{
+    background-color: #EEEEEE!important;
+}
+
+.btn_nobg::after{
+    border: none;
 }

@@ -2,6 +2,8 @@
 $c_white: #ffffff;
 $c_black: #000000;
 $c_bg: #f4f4f6;
+$c_bord_light: #eeeeee;
+$c_bord_dark: #bbbbbb;
 $c_clear: #00000000;
 $c_warn: #fd5750;
 $c_line: #efefef;
@@ -10,8 +12,13 @@ $c_font_dark: #353648;
 $c_font_light: #757685;
 $c_main: #fd5750;
 $c_sub: #f08f8b;
+$c_disable: #bdbdbd;
 
 //常用字体大小
+$s52: 32rpx;
+$s48: 28rpx;
+$s44: 24rpx;
+$s40: 20rpx;
 $s36: 36rpx;
 $s32: 32rpx;
 $s28: 28rpx;
@@ -23,16 +30,33 @@ $b4: 4rpx;
 $b8: 8rpx;
 $b20: 20rpx;
 
+//分割线宽度
+$w_line: 0.5rpx;
 
 //按钮常用
-@mixin btn_light() {
+@mixin btn_light {
   color: $c_black;
   background: $c_white;
-  border-radius: $b4;
+  border: $c_bord_light $w_line solid;
+  font-size: $s36;
 }
 
-@mixin btn_dark() {
+@mixin btn_dark {
   color: $c_white;
   background: $c_main;
-  border-radius: $b4;
+  border: $c_main $w_line solid;
+  font-size: $s36;
+}
+
+@mixin btn_disable {
+  color: $c_white;
+  background: $c_disable;
+  border: $c_bord_light $w_line solid;
+  font-size: $s36;
+}
+
+@mixin btn_nobg {
+  color: $c_black;
+  background: $c_clear;
+  font-size: $s36;
 }
