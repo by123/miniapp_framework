@@ -5,7 +5,7 @@ import { byLog, isEmpty } from "../common/util";
 import Constant from "../common/constant";
 import "./index.scss";
 
-export default class Screen extends Component {
+class Screen extends Component {
   componentWillMount() {
     this.showPageStack();
   }
@@ -15,7 +15,7 @@ export default class Screen extends Component {
     let pageStack = "";
     if (!isEmpty(pages)) {
       pages.map((item) => {
-        pageStack += item.route.split('/')[1] + "--->";
+        pageStack += item.route.split('/')[1] + "-->";
       });
       byLog("当前页面栈：" + pageStack);
     }
@@ -32,3 +32,5 @@ export default class Screen extends Component {
     );
   }
 }
+
+export default Screen

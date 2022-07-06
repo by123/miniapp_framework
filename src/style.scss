@@ -1,18 +1,38 @@
-
 //常用色值
-$c_white:#ffffff;
-$c_black:#000000;
-$c_bg:#F4F4F6;
-$c_clear:#00000000;
-$c_warn: #FD5750;
-$c_line:#EFEFEF;
-$c_transbg:rgba(12,13,14,0.3);
+$c_white: #ffffff;
+$c_black: #000000;
+$c_bg: #f4f4f6;
+$c_clear: #00000000;
+$c_warn: #fd5750;
+$c_line: #efefef;
+$c_transbg: rgba(12, 13, 14, 0.3);
 $c_font_dark: #353648;
 $c_font_light: #757685;
+$c_main: #fd5750;
+$c_sub: #f08f8b;
 
 //常用字体大小
-$f_bigger: 36rpx;
-$f_big: 32rpx;
-$f_normal: 28rpx;
-$f_small: 24rpx;
-$f_smaller: 20rpx;
+$s36: 36rpx;
+$s32: 32rpx;
+$s28: 28rpx;
+$s24: 24rpx;
+$s20: 20rpx;
+
+//常用boder
+$b4: 4rpx;
+$b8: 8rpx;
+$b20: 20rpx;
+
+
+//按钮常用
+@mixin btn_light() {
+  color: $c_black;
+  background: $c_white;
+  border-radius: $b4;
+}
+
+@mixin btn_dark() {
+  color: $c_white;
+  background: $c_main;
+  border-radius: $b4;
+}

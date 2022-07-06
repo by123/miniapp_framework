@@ -5,8 +5,8 @@ import { registerEvent } from "../../common/event";
 import Api from "../../common/api";
 import { openPage } from "../../common/util";
 import Constant from "../../common/constant";
-import ByButton from "../../component/by_btn";
-import Screen from ".";
+import ByButton, { ByButtonStyle } from "../../component/by_btn";
+import Screen from "../index";
 
 export default class Index extends Component {
   componentWillMount() {
@@ -31,8 +31,8 @@ export default class Index extends Component {
     return (
       <Screen>
         <Text>1111</Text>
-        <ByButton title='登录' onClick={this.openLoginPage} />
-        <ByButton title='关于' onClick={this.openAboutPage} />
+        <ByButton title='登录' btnStyle={ByButtonStyle.Light} onClick={this.openLoginPage} />
+        <ByButton title='关于' btnStyle={ByButtonStyle.Dark} onClick={this.openAboutPage} />
       </Screen>
     );
   }

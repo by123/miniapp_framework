@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import { Text } from "@tarojs/components";
 import './index.scss'
-import Screen from ".";
+import Screen from "../index";
 
 export default class Index extends Component {  
   componentWillMount () { 

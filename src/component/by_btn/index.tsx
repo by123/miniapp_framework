@@ -1,12 +1,14 @@
 import { Button, View } from "@tarojs/components";
 import "./index.scss";
 
+export enum ByButtonStyle{
+  Light = 'btn_light',
+  Dark = 'btn_dark',
+}
 interface ByButtonProps {
   title?: string;
-  titleColor?: string;
-  bgColor?: string;
+  btnStyle: ByButtonStyle;
   corner?: number;
-  isBottom?: boolean;
   onClick?: () => void;
 }
 const ByButton = (props: ByButtonProps) => {
@@ -15,7 +17,10 @@ const ByButton = (props: ByButtonProps) => {
   };
   return (
     <View className='btn_layout'>
-      <Button className='btn' onClick={onButtonClick}>
+      <Button
+        className={props.btnStyle}
+        onClick={onButtonClick}
+      >
         {props.title}
       </Button>
     </View>

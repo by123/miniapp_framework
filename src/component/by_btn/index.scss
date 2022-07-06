@@ -1,9 +1,16 @@
+@import "../../style.scss";
+
 .btn_layout{
-   
 }
 
-.btn{
+.btn_light{
+    @include btn_light();
     width: 100%;
     height: 100rpx;
-    background-color: cornflowerblue;
+}
+
+.btn_dark{
+    @include btn_dark();
+    width: 100%;
+    height: 100rpx;
 }
