@@ -80,5 +80,8 @@ export default class Constant {
   static URL_LOGIN_ALI = "/alipay/login" //支付宝登录
 
   /************************************************ 资源文件 ************************************************/
-  static IMG_BACK = "../../imgs/ic_back.png"
+  static IMG_BACK = require('../imgs/ic_back.png')
+  static IMG_1 = require('../imgs/ic_img1.png')
+  static IMG_2 = require('../imgs/ic_img2.png')
+  static IMG_3 = require('../imgs/ic_img3.png')
 }

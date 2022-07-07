@@ -1,4 +1,4 @@
-import { Button, View } from "@tarojs/components";
+import { Button } from "@tarojs/components";
 import { CSSProperties } from "react";
 import "./index.scss";
 
@@ -11,9 +11,8 @@ export enum ByButtonStyle {
 interface ByButtonProps {
   title?: string;
   btnStyle: ByButtonStyle;
-  corner?: number;
-  onClick?: () => void;
   styles?: CSSProperties;
+  onClick?: () => void;
 }
 const ByButton = (props: ByButtonProps) => {
   const onButtonClick = () => {
