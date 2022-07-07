@@ -2,13 +2,14 @@ import { Component } from "react";
 import "./index.scss";
 import { registerEvent } from "../../common/event";
 import Api from "../../common/api";
-import { openPage } from "../../common/util";
+import { getStorageSync, openPage } from "../../common/util";
 import Constant from "../../common/constant";
 import Screen from "../index";
-import "../../style.scss";
-import ByText, { ByTextDirect, ByTextStyle } from "../../component/by_text";
+import {$28, $48} from "../../style.scss";
+import {FlexView, TextView, Button, ListView} from '../../component'
 
 export default class Index extends Component {
+  datas = ['','','','','','','','','','','','','','','','','','','',]
   componentWillMount() {
     registerEvent("by666", {
       onEvent: (value) => {
@@ -27,10 +28,22 @@ export default class Index extends Component {
     openPage(Constant.PAGE_ABOUT);
   }
 
+  renderItem = (item) => {
+    const screenWidth = getStorageSync(Constant.KEY_SCREEN_WIDTH)
+    return (
+      <FlexView row justifyCenter styles={{width: screenWidth+ 'px', height: '100px'}}>
+        <FlexView>
+          <TextView title='123456778' size={16}></TextView>
+          <TextView title='abc' size={20}></TextView>
+        </FlexView>
+        <Button title='提交' darkStyle styles={{width: '200rpx', height:'80rpx'}}></Button>
+      </FlexView>
+    )
+  }
   render() {
     return (
       <Screen>
-        <ByText title='测试' director={ByTextDirect.ImageTop} imgSrc={Constant.IMG_2} styles={{color: '#ff00ff'}}></ByText>
+        <ListView datas={this.datas} renderItem={this.renderItem} />
       </Screen>
     );
   }

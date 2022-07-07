@@ -2,30 +2,45 @@ import { Button } from "@tarojs/components";
 import { CSSProperties } from "react";
 import "./index.scss";
 
-export enum ByButtonStyle {
-  Light = 'btn_light',
-  Dark = 'btn_dark',
-  Disable = 'btn_disable',
-  NoBg = 'btn_nobg',
-}
 interface ByButtonProps {
-  title?: string;
-  btnStyle: ByButtonStyle;
+  className?: string
   styles?: CSSProperties;
+  title?: string;
+  lightStyle?: boolean;
+  darkStyle?: boolean;
+  disableStyle?: boolean;
+  nobgStyle?: boolean;
   onClick?: () => void;
 }
 const ByButton = (props: ByButtonProps) => {
   const onButtonClick = () => {
-    if (props.btnStyle !== ByButtonStyle.Disable) {
+    if (!props.nobgStyle) {
       props.onClick && props.onClick();
     }
   };
+
+  const getButtonStyle = () => {
+    const { lightStyle, darkStyle, disableStyle, nobgStyle } = props;
+    if (lightStyle) {
+      return "btn_light";
+    }
+    if (darkStyle) {
+      return "btn_dark";
+    }
+    if (disableStyle) {
+      return "btn_disable";
+    }
+    if (nobgStyle) {
+      return "btn_nobg";
+    }
+    return "btn_dark";
+  };
   return (
     <Button
-      className={props.btnStyle}
+      className={getButtonStyle()}
       style={props.styles}
       hoverClass='btn_hover'
-      disabled={props.btnStyle === ByButtonStyle.Disable}
+      disabled={props.nobgStyle}
       onClick={onButtonClick}
     >
       {props.title}
