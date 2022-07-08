@@ -1,4 +1,5 @@
 import Taro from "@tarojs/taro"
+import P from "../style"
 import Constant from "./constant"
 
 /**
@@ -237,6 +238,12 @@ const getNetworkType = () => {
   });
 };
 
+const Trans = (value: number) => {
+  // const pixo = getStorageSync(Constant.KEY_PIXELRATIO)
+  const screenWidth = getStorageSync(Constant.KEY_SCREEN_WIDTH)
+  return screenWidth  * value / P.designWidth
+}
+
 //调试
 const byLog = (msg) => {
   Constant.IS_DEV && console.log('by666 => ' + msg)
@@ -265,4 +272,5 @@ export {
   getStorageSync,
   getNetworkType,
   byLog,
+  Trans,
 }

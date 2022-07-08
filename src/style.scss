@@ -1,62 +1,65 @@
+
+
 //常用色值
-$c_white: #ffffff;
-$c_black: #000000;
-$c_bg: #f4f4f6;
-$c_bord_light: #eeeeee;
-$c_bord_dark: #bbbbbb;
-$c_clear: #00000000;
-$c_warn: #fd5750;
-$c_line: #efefef;
-$c_transbg: rgba(12, 13, 14, 0.3);
-$c_font_dark: #353648;
-$c_font_light: #757685;
-$c_main: #fd5750;
-$c_sub: #f08f8b;
-$c_disable: #bdbdbd;
+$c_white : '#ffffff';
+$c_black : '#000000';
+$c_bg : '#f4f4f6';
+$c_bord_light : '#eeeeee';
+$c_bord_dark : '#bbbbbb';
+$c_clear : '#00000000';
+$c_warn : '#fd5750';
+$c_line : '#efefef';
+$c_transbg : 'rgba(12, 13, 14, 0.3)';
+$c_font_dark : '#353648';
+$c_font_light : '#757685';
+$c_main : '#fd5750';
+$c_sub : '#f08f8b';
+$c_disable : '#bdbdbd';
 
 //常用字体大小
-$s52: 52rpx;
-$s48: 48rpx;
-$s44: 44rpx;
-$s40: 40rpx;
-$s36: 36rpx;
-$s32: 32rpx;
-$s28: 28rpx;
-$s24: 24rpx;
-$s20: 20rpx;
+$s_big_4 : 52rpx;
+$s_big_3 : 48rpx;
+$s_big_2 : 44rpx;
+$s_big_1 : 40rpx;
+$s_noraml : 36rpx;
+$s_small_1 : 32rpx;
+$s_small_2 : 28rpx;
+$s_small_3 : 24rpx;
+$s_small_4 : 20rpx;
 
 //常用boder
-$b4: 4rpx;
-$b8: 8rpx;
-$b20: 20rpx;
+$border_2 : 4rpx;
+$border_4 : 8rpx;
+$boder_8 : 16rpx;
+$boder_12 : 24rpx;
 
 //分割线宽度
-$w_line: 0.5rpx;
+$w_line : 0.5rpx;
 
 //按钮常用
 @mixin btn_light {
-  color: $c_black;
-  background: $c_white;
-  border: $c_bord_light $w_line solid;
-  font-size: $s36;
-}
-
-@mixin btn_dark {
-  color: $c_white;
-  background: $c_main;
-  border: $c_main $w_line solid;
-  font-size: $s36;
-}
-
-@mixin btn_disable {
-  color: $c_white;
-  background: $c_disable;
-  border: $c_bord_light $w_line solid;
-  font-size: $s36;
-}
-
-@mixin btn_nobg {
-  color: $c_black;
-  background: $c_clear;
-  font-size: $s36;
-}
+    color:$c_black;
+    background:#ffffff;
+    border: $c_bord_light $w_line solid;
+    font-size: $s_noraml 
+  }
+  
+  @mixin btn_dark {
+    color: #ffffff;
+    background: #fd5750;
+    border: #fd5750 $w_line solid;
+    font-size: $s_noraml
+  }
+  
+  @mixin btn_disable {
+    color: #ffffff;
+    background: $c_disable;
+    border: $c_bord_light $w_line solid;
+    font-size: $s_noraml 
+  }
+  
+  @mixin btn_nobg {
+    color: $c_black;
+    background: $c_clear;
+    font-size: $s_noraml
+  }

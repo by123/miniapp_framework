@@ -2,14 +2,15 @@ import { Component } from "react";
 import "./index.scss";
 import { registerEvent } from "../../common/event";
 import Api from "../../common/api";
-import { getStorageSync, openPage } from "../../common/util";
+import { openPage, Trans } from "../../common/util";
 import Constant from "../../common/constant";
 import Screen from "../index";
-import {$28, $48} from "../../style.scss";
-import {FlexView, TextView, Button, ListView} from '../../component'
+import { FlexView, TextView, Button, ListView } from "../../component";
+import P from "../../style";
+import { View } from "@tarojs/components";
 
 export default class Index extends Component {
-  datas = ['','','','','','','','','','','','','','','','','','','',]
+  datas = ['', '', ''];
   componentWillMount() {
     registerEvent("by666", {
       onEvent: (value) => {
@@ -29,17 +30,16 @@ export default class Index extends Component {
   }
 
   renderItem = (item) => {
-    const screenWidth = getStorageSync(Constant.KEY_SCREEN_WIDTH)
     return (
-      <FlexView row justifyCenter styles={{width: screenWidth+ 'px', height: '100px'}}>
-        <FlexView>
-          <TextView title='123456778' size={16}></TextView>
-          <TextView title='abc' size={20}></TextView>
+      <FlexView row justifySpaceBetween bottomLine padding={15} backgroudColor={P.c_bord_dark}  height={50}>
+        <FlexView >
+          <TextView title='123456778' size={Trans(P.s_noraml)}></TextView>
+          <TextView title='abc' size={Trans(P.s_big_3)}></TextView>
         </FlexView>
-        <Button title='提交' darkStyle styles={{width: '200rpx', height:'80rpx'}}></Button>
+        <Button darkStyle className='btn_commit' title='提交' width={80} height={40}></Button>
       </FlexView>
-    )
-  }
+    );
+  };
   render() {
     return (
       <Screen>
